@@ -11,4 +11,6 @@ public interface UserService {
 	User save(User user);
 	
 	User findOne(long id);
+	
+	User findByEmail(String email);
 }

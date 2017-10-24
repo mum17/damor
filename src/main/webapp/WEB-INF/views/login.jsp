@@ -3,7 +3,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
 <fieldset><legend>Login</legend>
-<form action="<spring:url value="/postLogin"></spring:url>" method="post">
+<form action="<spring:url value="/postLogin"/>" method="post">
 <table>
 	<tr><td>Email<td><input name="email" value="jsmith@gmail.com" />
 	<tr><td>Password<td><input name="password" value="1234"/>

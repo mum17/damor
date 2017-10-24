@@ -116,6 +116,10 @@ public class User {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
+	
+	public String getName() {
+		return this.firstName + "  " + this.lastName;
+	}
 
 	@Override
 	public String toString() {

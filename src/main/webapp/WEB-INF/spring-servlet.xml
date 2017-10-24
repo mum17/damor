@@ -64,4 +64,11 @@
 		<property name="basenames" value="classpath:messages,classpath:errorMessages" />
 	</bean>
 
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="edu.mum.damor.interceptor.UserInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 </beans>

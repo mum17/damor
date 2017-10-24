@@ -24,7 +24,7 @@ $(function() {
 	
 	api.login = function(form) {
 		post("postLogin", gatherForm(form)).done(function(done){
-			alert(done);
+			location.reload();
 		});
 	}
 

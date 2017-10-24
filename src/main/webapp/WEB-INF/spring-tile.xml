@@ -25,5 +25,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 	</definition>
 
+	<definition name="offerRide" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/offerRide.jsp" />
+	</definition>
+
 
 </tiles-definitions>
