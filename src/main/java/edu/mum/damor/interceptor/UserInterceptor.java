@@ -34,9 +34,11 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
 		if (user == null) {
 			user = new User();
 		}
-		ModelMap modelMap = modelAndView.getModelMap();
-		if (modelMap != null) {
-			modelMap.addAttribute("user", user);
+		if (modelAndView != null) {
+			ModelMap modelMap = modelAndView.getModelMap();
+			if (modelMap != null) {
+				modelMap.addAttribute("user", user);
+			}
 		}
 	}
 
