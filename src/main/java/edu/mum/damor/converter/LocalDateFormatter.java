@@ -7,8 +7,6 @@ import java.util.Locale;
 
 import org.springframework.format.Formatter;
 
-import edu.mum.damor.util.Debug;
-
 public class LocalDateFormatter implements Formatter<LocalDate> {
 
 	private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy").withLocale(Locale.US);

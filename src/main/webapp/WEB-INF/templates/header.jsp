@@ -4,7 +4,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
-<a href="<spring:url value="/findRide" />">Find ride</a>
-<a href="<spring:url value="/offerRide" />">Offer ride</a>
 <a href="<spring:url value="/signup" />">Sign up</a>
-<a href="<spring:url value="/login" />">login</a>
+<a href="<spring:url value="/login" />">Login</a>
+<a href="<spring:url value="/offerRide" />">Offer ride</a>
+<a href="<spring:url value="/findRide" />">Find ride</a>
+<hr/>

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import edu.mum.damor.util.Authority;
 import edu.mum.damor.util.Gender;
 
 @Entity
@@ -34,7 +35,7 @@ public class User {
 	private String password;
 
 	@Column(length = 5, nullable = false)
-	private String authority;
+	private Authority authority;
 
 	private LocalDate birthdate;
 
@@ -84,11 +85,11 @@ public class User {
 		this.password = password;
 	}
 
-	public String getAuthority() {
+	public Authority getAuthority() {
 		return authority;
 	}
 
-	public void setAuthority(String authority) {
+	public void setAuthority(Authority authority) {
 		this.authority = authority;
 	}
 

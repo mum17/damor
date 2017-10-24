@@ -7,6 +7,8 @@
 	<tr><td>Last name<td><input name="lastName" value="Smith" />
 	<tr><td>Email<td><input name="email" value="jsmith@gmail.com"/>
 	<tr><td>Password<td><input name="password" value="1234"/>
+	<tr><td>Authority:</td><td>
+		<label><input type="checkbox" name="authority" value="ADMIN"/> Administrator</label>
 	<tr><td>Birth date</td><td><input type="text" name="birthdate" value="1/21/2017"/></td>
 	<tr><td>Gender:</td><td>
 		<label><input type="radio" name="gender" value="M" checked/> Male</label>
