@@ -7,7 +7,7 @@
 <meta name="author" content="">
 <title>502 Bad Gateway</title>
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="<spring:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <style>
 /* Error Page Inline Styles */
@@ -82,10 +82,5 @@ body {
     </div>
   </div>
 </div>
-<!-- End Error Page Content -->
-<!--Scripts-->
-<!-- jQuery library -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>

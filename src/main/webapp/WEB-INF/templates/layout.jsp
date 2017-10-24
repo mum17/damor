@@ -12,6 +12,9 @@
 <c:set var="title"><tiles:getAsString name="title" /></c:set>			
 <title><spring:message code="${title}"/> - Damor</title>
 <link href="<spring:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
+<style>
+body { padding-top: 70px; }
+</style>
 <script type="text/javascript">
 	var contextPath = '<spring:url value="/"/>';
 </script>

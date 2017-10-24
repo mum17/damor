@@ -26,7 +26,6 @@ public class GlobalController {
 	@ModelAttribute
 	public Auth getUser(Principal principal) {
 		if (principal != null) {
-			Debug.log("Controller advice", principal.getName());
 			return new Auth(userService.findByEmail(principal.getName()));
 		}
 		return new Auth(null);

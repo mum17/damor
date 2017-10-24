@@ -35,8 +35,11 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${user.getName()} <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">My bookings</a></li>
-            <li><a href="#">My rides</a></li>
+            <li><a href="<spring:url value="/myBookings"/>">My bookings</a></li>
+            <li><a href="<spring:url value="/myRides"/>">My rides</a></li>
+            <security:authorize access="hasAuthority('ADMIN')">
+            <li><a href="<spring:url value="/users"/>">Users</a></li>
+            </security:authorize>
             <li role="separator" class="divider"></li>
             <li><a href="<spring:url value="/doLogout"/>">Sign out</a></li>
           </ul>

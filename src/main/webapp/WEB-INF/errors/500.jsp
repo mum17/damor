@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="503 Service Unavailable">
+<meta name="description" content="500 Internal Server Error">
 <meta name="author" content="">
-<title>503 Service Unavailable</title>
+<title>500 Internal Server Error</title>
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="<spring:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <style>
 /* Error Page Inline Styles */
@@ -53,8 +53,8 @@ body {
 <div class="container">
   <!-- Jumbotron -->
   <div class="jumbotron">
-    <h1><i class="fa fa-exclamation-triangle orange"></i> 503 Service Unavailable</h1>
-    <p class="lead">The web server is returning an unexpected temporary error for <em><span id="display-domain"></span></em>.</p>
+    <h1><span class="glyphicon glyphicon-fire red"></span> 500 Internal Server Error</h1>
+    <p class="lead">The web server is returning an internal error for <em><span id="display-domain"></span></em>.</p>
     <a href="javascript:document.location.reload(true);" class="btn btn-default btn-lg text-center"><span class="green">Try This Page Again</span></a>
   </div>
 </div>
@@ -63,22 +63,17 @@ body {
     <div class="row">
       <div class="col-md-6">
         <h2>What happened?</h2>
-        <p class="lead">A 503 error status implies that this is a temporary condition due to a temporary overloading or maintenance of the server. This error is normally a brief temporary interuption.</p>
+        <p class="lead">A 500 error status implies there is a problem with the web server's software causing it to malfunction.</p>
       </div>
       <div class="col-md-6">
         <h2>What can I do?</h2>
         <p class="lead">If you're a site vistor</p>
-        <p>If you need immediate assistance, please send us an email instead. We apologize for any inconvenience.</p>
+        <p> Nothing you can do at the moment. If you need immediate assistance, please send us an email instead. We apologize for any inconvenience.</p>
         <p class="lead">If you're the site owner</p>
-         <p>This error is mostly likely very brief, the best thing to do is to check back in a few minutes and everything will probably be working normal agian.</p>
+         <p>This error can only be fixed by server admins, please contact your website provider.</p>
      </div>
     </div>
   </div>
 </div>
-<!-- End Error Page Content -->
-<!--Scripts-->
-<!-- jQuery library -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>

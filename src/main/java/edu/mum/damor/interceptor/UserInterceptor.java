@@ -45,7 +45,7 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
 	private User getUser(HttpServletRequest request) {
 		Principal principal = request.getUserPrincipal();
 		User user = null;
-
+		
 		if (principal != null) {
 			return userService.findByEmail(principal.getName());
 		}
