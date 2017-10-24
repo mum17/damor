@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import edu.mum.damor.domain.Auth;
@@ -36,5 +37,11 @@ public class RideController {
 	public String myRides(Model model, Auth auth) {
 		model.addAttribute("rides", rideService.findAll(auth.user.getId()));
 		return "myRides";
+	}
+	
+	@RequestMapping(value = "/cancelRide", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void cancelRide(@RequestParam long rideId) {
+		rideService.cancel(rideId);
 	}
 }
