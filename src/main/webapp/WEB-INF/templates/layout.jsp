@@ -21,7 +21,9 @@ body { padding-top: 70px; }
 <script type="text/javascript" src="<spring:url value="/resources/jquery-3.2.1.min.js"/>"></script>
 <script type="text/javascript" src="<spring:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
 <script type="text/javascript" src="<spring:url value="/resources/app.js"/>"></script>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC--CCm_LCH5EjljCkZuMIlCvKHQCU85jc&libraries=places&callback=initMap"
+        async defer></script>
+<script type="text/javascript" src="<spring:url value="/resources/gmaps.js"/>"></script>
 </head>
 
 <body>
