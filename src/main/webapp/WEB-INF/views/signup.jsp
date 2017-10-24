@@ -2,16 +2,65 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
-<fieldset><legend>Sign up</legend><form><table>
-	<tr><td>First name<td><input name="firstName" value="John" />
-	<tr><td>Last name<td><input name="lastName" value="Smith" />
-	<tr><td>Email<td><input name="email" value="jsmith@gmail.com"/>
-	<tr><td>Password<td><input name="password" value="1234"/>
-	<tr><td>Authority:</td><td>
-		<label><input type="checkbox" name="authority" value="ADMIN"/> Administrator</label>
-	<tr><td>Birth date</td><td><input type="text" name="birthdate" value="1/21/2017"/></td>
-	<tr><td>Gender:</td><td>
-		<label><input type="radio" name="gender" value="M" checked/> Male</label>
-		<label><input type="radio" name="gender" value="F"/> Female</label>
-	<tr><td><td><input type="button" value="Sign up" onclick="api.signUp(this.form)" />
-</table></form></fieldset>
+
+<form class="form-horizontal">
+
+
+
+ <div class="form-group">
+    <label for="fname" class="col-sm-2 control-label">First name</label>
+    <div class="col-sm-10">
+      <input type="text" name="firstName" class="form-control" id="inputEmail3"  value="John"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lname" class="col-sm-2 control-label">Last name</label>
+    <div class="col-sm-10">
+      <input type="text" name="lastName" class="form-control" id="inputEmail3"  value="Smith"/>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="inputEmail3" value="jsmith@gmail.com">
+    </div>
+  </div>
+  
+   <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword3" value="1234">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Gender</label>
+  
+   <label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="M"> Male
+</label>
+<label class="radio-inline">
+  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="F"> Female
+</label>
+   </div>
+
+      <div class="col-sm-2 control-label">
+
+
+   <button type="button"  value="Sign up" onclick="api.signUp(this.form)"  class="btn btn-primary">Sign Up</button>
+  </div>
+
+
+</form>    
+        
+        
+     
+   
+
+   
+   
+
+ 
+
