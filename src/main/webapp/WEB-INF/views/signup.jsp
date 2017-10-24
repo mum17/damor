@@ -3,6 +3,10 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
 
+<div class="page-header">
+  <h1>Sign up</small></h1>
+</div>
+
 <form class="form-horizontal">
 
 
@@ -24,14 +28,14 @@
   <div class="form-group">
     <label class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control"  value="jsmith@gmail.com">
+      <input type="email" name="email" class="form-control"  value="jsmith@gmail.com">
     </div>
   </div>
   
    <div class="form-group">
     <label  class="col-sm-2 control-label">Password</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control"  value="1234">
+      <input type="password" name="password" class="form-control"  value="1234">
     </div>
   </div>
   
@@ -39,10 +43,10 @@
     <label  class="col-sm-2 control-label">Gender</label>
   
    <label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions"  value="M"> Male
+  <input type="radio" name="gender"  value="M" checked> Male
 </label>
 <label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions"  value="F"> Female
+  <input type="radio" name="gender"  value="F"> Female
 </label>
    </div>
 

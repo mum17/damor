@@ -17,13 +17,19 @@ $(function() {
 	}
 
 	api.signUp = function(form) {
-		post("signup", gatherForm(form)).done(function(done) {
-			location.reload();
+		var data = gatherForm(form);
+		post("signup", data).done(function(done) {
+			post("postLogin", {
+				email : data.email,
+				password : data.password
+			}).done(function(done) {
+				location.href = contextPath;
+			});
 		});
 	}
-	
+
 	api.login = function(form) {
-		post("postLogin", gatherForm(form)).done(function(done){
+		post("postLogin", gatherForm(form)).done(function(done) {
 			location.reload();
 		});
 	}
@@ -41,9 +47,12 @@ $(function() {
 			$foundRides.html(d);
 		})
 	}
-	
+
 	api.bookSeat = function(rideId, seats) {
-		post('bookSeat', {rideId:rideId, seats:seats}).done(function(d) {
+		post('bookSeat', {
+			rideId : rideId,
+			seats : seats
+		}).done(function(d) {
 			location.href = contextPath + "myBookings";
 		});
 	};
