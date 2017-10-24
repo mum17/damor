@@ -78,5 +78,12 @@ public class AuthController {
 		}
 		return "Invalid email or password";
 	}
+	
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public String myRides(Model model, Auth auth) {
+		model.addAttribute("users", userService.findAll());
+		return "users";
+	}
+
 
 }

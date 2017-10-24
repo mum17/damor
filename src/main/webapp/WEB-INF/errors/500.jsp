@@ -1,3 +1,5 @@
+<%@ page isErrorPage="true" contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,7 @@
 <meta name="author" content="">
 <title>500 Internal Server Error</title>
 <!-- Bootstrap core CSS -->
-<link href="<spring:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
+<link rel="stylesheet" href="<spring:url value="/resources/bootstrap/css/bootstrap.min.css"/>" />
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <style>
 /* Error Page Inline Styles */

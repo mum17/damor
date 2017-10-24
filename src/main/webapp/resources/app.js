@@ -74,5 +74,9 @@ $(function() {
 			location.reload();
 		})
 	}
+	
+	api.editUser = function(userId) {
+		alert('Not implemented!');
+	}
 
 });
