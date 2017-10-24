@@ -70,5 +70,5 @@
 			<bean class="edu.mum.damor.interceptor.UserInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
+
 </beans>

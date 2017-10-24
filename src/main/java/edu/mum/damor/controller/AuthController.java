@@ -4,10 +4,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import edu.mum.damor.domain.Auth;
 import edu.mum.damor.domain.User;
 import edu.mum.damor.service.UserService;
 
@@ -31,7 +28,10 @@ public class AuthController {
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String signup() {
+	public String signup(Auth auth) {
+		if (auth.isAuthenticated()) {
+			return "redirect:/";
+		}
 		return "signup";
 	}
 
@@ -42,7 +42,10 @@ public class AuthController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
+	public String login(Auth auth) {
+		if (auth.isAuthenticated()) {
+			return "redirect:/";
+		}
 		return "login";
 	}
 	
@@ -55,20 +58,6 @@ public class AuthController {
 			System.out.println(key + "->" + map.get(key));
 		}
  		return "Invalid email or password";
-	}
-	
-	@RequestMapping("/welcome")
-	@ResponseBody
-	public String welcome() {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (!(auth instanceof AnonymousAuthenticationToken)) {
-			UserDetails userDetail = (UserDetails) auth.getPrincipal();
-			System.out.println(userDetail);
-		
-			return "username:" + userDetail.getUsername();
-			
-		}
-		return "not logined";
 	}
 	
 }

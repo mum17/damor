@@ -35,8 +35,7 @@
 		<security:intercept-url pattern="/members"
 			access="hasAnyRole('ROLE_ADMIN','ROLE_USER')" />
 		
-		<security:intercept-url pattern="/login" access="isAnonymous()"/> 
-		<security:intercept-url pattern="/signup" access="isAnonymous()"/> 
+		<!-- <security:intercept-url pattern="/signup" access="isAnonymous()"/>  -->
 		<!-- <security:intercept-url pattern="/logout" access="isAuthenticated()" requires-channel="http"/> -->
 		<!-- BASIC login -->
 		<!-- <security:form-login /> -->
@@ -51,7 +50,7 @@
 		<!-- comment out the next few lines for BASIC Login -->
 		<security:form-login login-page="/login"
 			login-processing-url="/postLogin" username-parameter="email"
-			password-parameter="password" default-target-url="/welcome"
+			password-parameter="password" default-target-url="/"
 			always-use-default-target="true" authentication-failure-url="/loginfailed" />
 		<!-- END of comment out for BASIC Login -->
 

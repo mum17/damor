@@ -123,9 +123,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "UserEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", birthdate=" + birthdate + ", gender=" + gender + ", avatar=" + avatar
-				+ "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", email=" + email + "]";
 	}
+
 
 }
