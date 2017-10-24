@@ -140,7 +140,8 @@
         var miles = distance_text.substring(0, distance_text.length - 3);
         getGeo();
 
-        $('#distance').html("Distance = " + miles + " miles" );
+        //$('#distance').html("Distance = " + miles + " miles" );
+        document.getElementById("distance").value = miles;
       }
     }
   }
