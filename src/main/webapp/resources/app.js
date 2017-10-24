@@ -38,10 +38,15 @@ $(function() {
 		$foundRides = $('#foundRides');
 		$foundRides.html('');
 		post("findRide", gatherForm(form)).done(function(d) {
-			console.log(d);
 			$foundRides.html(d);
 		})
 	}
+	
+	api.bookSeat = function(rideId, seats) {
+		post('bookSeat', {rideId:rideId, seats:seats}).done(function(d) {
+			location.href = contextPath + "myBookings";
+		});
+	};
 
 	api.cancelBooking = function(bookingId) {
 		post("cancelBooking", {

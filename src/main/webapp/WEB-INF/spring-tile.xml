@@ -29,5 +29,17 @@
 		<put-attribute name="body" value="/WEB-INF/views/offerRide.jsp" />
 	</definition>
 
+	<definition name="findRide" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/findRide.jsp" />
+	</definition>
+
+	<definition name="myBookings" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/myBookings.jsp" />
+	</definition>
+
+	<definition name="myRides" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/myRides.jsp" />
+	</definition>
+
 
 </tiles-definitions>

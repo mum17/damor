@@ -21,4 +21,5 @@
 	<tr><td>Max number of seats</td><td><input name="maxNumberOfSeats" value="3"/></td>
 	<tr><td>Distance</td><td><input name="distanceInMile" value="23"/>(in miles)</td>
 	<tr><td><td><input type="button" value="Offer ride" onclick="api.offerRide(this.form)" />
+	<a href="<spring:url value="/myRides"/>">My rides</a>
 </table></form></fieldset>
