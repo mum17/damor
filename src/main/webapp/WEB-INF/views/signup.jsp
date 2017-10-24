@@ -8,41 +8,41 @@
 
 
  <div class="form-group">
-    <label for="fname" class="col-sm-2 control-label">First name</label>
+    <label class="col-sm-2 control-label">First name</label>
     <div class="col-sm-10">
-      <input type="text" name="firstName" class="form-control" id="inputEmail3"  value="John"/>
+      <input type="text" name="firstName" class="form-control"   value="John"/>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="lname" class="col-sm-2 control-label">Last name</label>
+    <label  class="col-sm-2 control-label">Last name</label>
     <div class="col-sm-10">
-      <input type="text" name="lastName" class="form-control" id="inputEmail3"  value="Smith"/>
+      <input type="text" name="lastName" class="form-control"   value="Smith"/>
     </div>
   </div>
   
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <label class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" value="jsmith@gmail.com">
+      <input type="email" class="form-control"  value="jsmith@gmail.com">
     </div>
   </div>
   
    <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    <label  class="col-sm-2 control-label">Password</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" value="1234">
+      <input type="password" class="form-control"  value="1234">
     </div>
   </div>
   
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Gender</label>
+    <label  class="col-sm-2 control-label">Gender</label>
   
    <label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="M"> Male
+  <input type="radio" name="inlineRadioOptions"  value="M"> Male
 </label>
 <label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="F"> Female
+  <input type="radio" name="inlineRadioOptions"  value="F"> Female
 </label>
    </div>
 
@@ -53,14 +53,5 @@
   </div>
 
 
-</form>    
-        
-        
-     
-   
-
-   
-   
-
- 
-
+</form>            
+  
