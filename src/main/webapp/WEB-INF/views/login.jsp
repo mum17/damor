@@ -4,7 +4,6 @@
 
 <fieldset><legend>Login</legend>
 <form action="<spring:url value="/postLogin"></spring:url>" method="post">
-<%= (String) request.getSession().getAttribute("SPRING_SECURITY_LAST_USERNAME") %>
 <table>
 	<tr><td>Email<td><input name="email" value="jsmith@gmail.com" />
 	<tr><td>Password<td><input name="password" value="1234"/>

@@ -4,6 +4,10 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -51,7 +55,20 @@ public class AuthController {
 			System.out.println(key + "->" + map.get(key));
 		}
  		return "Invalid email or password";
- 
+	}
+	
+	@RequestMapping("/welcome")
+	@ResponseBody
+	public String welcome() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (!(auth instanceof AnonymousAuthenticationToken)) {
+			UserDetails userDetail = (UserDetails) auth.getPrincipal();
+			System.out.println(userDetail);
+		
+			return "username:" + userDetail.getUsername();
+			
+		}
+		return "not logined";
 	}
 	
 }
