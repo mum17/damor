@@ -8,11 +8,13 @@
 		template="/WEB-INF/templates/layout.jsp">
 		<put-attribute name="title" value="title.home" />
 		<put-attribute name="header" value="/WEB-INF/templates/header.jsp" />
+		<put-attribute name="jumbotron" value="" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/templates/footer.jsp" />
 	</definition>
 
 	<definition name="home" extends="base">
+		<put-attribute name="jumbotron" value="/WEB-INF/templates/jumbotron.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
 	</definition>
 

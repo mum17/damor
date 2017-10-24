@@ -4,14 +4,45 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
-<security:authorize access="isAnonymous()">
-	<a href="<spring:url value="/signup" />">Sign up</a>
-	<a href="<spring:url value="/login" />">Login</a>
-</security:authorize>
-<security:authorize access="isAuthenticated()">
-	${user.getName()}
-	<a href="<spring:url value="/doLogout"/>">Logout</a>
-	<a href="<spring:url value="/offerRide" />">Offer ride</a>
-	<a href="<spring:url value="/findRide" />">Find ride</a>
-</security:authorize>
-<hr/>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Damor</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <security:authorize access="isAnonymous()">
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input name="email" type="text" placeholder="Email" class="form-control" value="jsmith@gmail.com">
+        </div>
+        <div class="form-group">
+          <input name="password" type="password" placeholder="Password" class="form-control" value="1234">
+        </div>
+        <button type="button" class="btn btn-success" onclick="api.login(this.form)">Sign in</button>
+        <a class="btn btn-info" href="<spring:url value="/signup"/>">Sign up</a>
+      </form>
+      </security:authorize>
+      <security:authorize access="isAuthenticated()">
+	      <ul class="nav navbar-nav navbar-right">
+		<li><a href="<spring:url value="/offerRide" />">Offer ride</a></li>
+		<li><a href="<spring:url value="/findRide" />">Find ride</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${user.getName()} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">My bookings</a></li>
+            <li><a href="#">My rides</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<spring:url value="/doLogout"/>">Sign out</a></li>
+          </ul>
+        </li>
+      </ul>
+	  </security:authorize>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>

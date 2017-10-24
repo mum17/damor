@@ -1,1 +1,3 @@
-<p>&copy; Company 2017</p>
+<footer>
+	<p>&copy; 2017 Damor, Inc.</p>
+</footer>
