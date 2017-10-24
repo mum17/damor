@@ -12,9 +12,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import edu.mum.damor.util.LuggageSize;
 import edu.mum.damor.util.RideStatus;
@@ -33,21 +35,26 @@ public class Ride {
 	private User driver;
 
 	@Column(name = "pickup_point", length = 100, nullable = false)
+	@NotEmpty
 	private String pickupPoint;
 
 	@Column(name = "dropoff_point", length = 100, nullable = false)
+	@NotEmpty
 	private String dropoffPoint;
 
 	@Column(name = "departure_at", nullable = false)
+	@NotNull
 	private LocalDateTime departureAt;
 
 	@Column(name = "arrival_at", nullable = false)
+	@NotNull
 	private LocalDateTime arrivalAt;
 
 	@Column(name = "note")
 	private String note;
 
 	@Column(name = "luggage_size", length = 1, nullable = false)
+	@NotNull
 	private LuggageSize luggageSize;
 
 	@Column(name = "pickup_flexibility_in_minutes", nullable = false)

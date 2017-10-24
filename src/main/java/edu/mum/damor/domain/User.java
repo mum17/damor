@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import edu.mum.damor.util.Authority;
 import edu.mum.damor.util.Gender;
 
@@ -23,12 +25,15 @@ public class User {
 	private long id;
 
 	@Column(name = "first_name", length = 50, nullable = false)
+	@NotEmpty
 	private String firstName;
 
 	@Column(name = "last_name", length = 50, nullable = false)
+	@NotEmpty
 	private String lastName;
 
 	@Column(nullable = false)
+	@NotEmpty
 	private String email;
 
 	@Column(length = 64, nullable = false)
