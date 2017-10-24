@@ -29,7 +29,9 @@ $(function() {
 	}
 
 	api.offerRide = function(form) {
-		post("offerRide", gatherForm(form)).done(function(done) {
+		var data = gatherForm(form);
+		console.log(JSON.stringify(data));
+		post("offerRide", data).done(function(done) {
 			location.reload();
 		});
 	}
