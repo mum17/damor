@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -20,7 +21,7 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
+
 		request.getSession().setAttribute("user", getUser(request));
 		return super.preHandle(request, response, handler);
 	}
@@ -29,7 +30,14 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 
-		modelAndView.getModelMap().addAttribute("user", getUser(request));
+		User user = getUser(request);
+		if (user == null) {
+			user = new User();
+		}
+		ModelMap modelMap = modelAndView.getModelMap();
+		if (modelMap != null) {
+			modelMap.addAttribute("user", user);
+		}
 	}
 
 	private User getUser(HttpServletRequest request) {
@@ -37,7 +45,7 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
 		User user = null;
 
 		if (principal != null) {
-			user = userService.findByEmail(principal.getName());
+			return userService.findByEmail(principal.getName());
 		}
 		return user;
 	}

@@ -2,8 +2,13 @@ package edu.mum.damor.controller;
 
 import java.util.Map;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpStatus;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,13 +23,27 @@ import edu.mum.damor.service.UserService;
 
 @Controller
 public class AuthController {
-	
+
 	@Autowired
 	UserService userService;
 	
+	@Autowired
+	DataSource dataSource;
+
 	@RequestMapping("/")
 	public String home() {
 		return "home";
+	}
+
+	@RequestMapping("/createdb")
+	public String createDefaultDB() {
+		//DataSource dataSource = (DataSource)ApplicationContextProvider.getApplicationContext().getBean("dataSource");
+
+		Resource resource = new ClassPathResource("createdb.sql");
+		ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator(resource);
+		databasePopulator.execute(dataSource);
+		
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -40,7 +59,7 @@ public class AuthController {
 	public void signUp(@ModelAttribute User user) {
 		userService.save(user);
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Auth auth) {
 		if (auth.isAuthenticated()) {
@@ -48,8 +67,8 @@ public class AuthController {
 		}
 		return "login";
 	}
-	
-	@RequestMapping(value="/loginfailed", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
 	public String loginfailed(Model model) {
@@ -57,7 +76,7 @@ public class AuthController {
 		for (String key : map.keySet()) {
 			System.out.println(key + "->" + map.get(key));
 		}
- 		return "Invalid email or password";
+		return "Invalid email or password";
 	}
-	
+
 }

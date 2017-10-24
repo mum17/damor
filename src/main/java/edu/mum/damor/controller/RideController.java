@@ -1,11 +1,15 @@
 package edu.mum.damor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+import edu.mum.damor.domain.Auth;
+import edu.mum.damor.domain.Ride;
 import edu.mum.damor.domain.User;
 import edu.mum.damor.service.RideService;
 
@@ -18,5 +22,12 @@ public class RideController {
 	@RequestMapping(value = "/offerRide", method = RequestMethod.GET)
 	public String userRides(@ModelAttribute User user) {
 		return "offerRide";
+	}
+
+	@RequestMapping(value = "/offerRide", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void offerRide(@ModelAttribute Ride ride, Auth auth) {
+		ride.setDriver(auth.user);
+		rideService.offerRide(ride);
 	}
 }

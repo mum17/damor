@@ -36,7 +36,7 @@ public class GlobalController {
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ResponseBody
 	public String handleError(DataIntegrityViolationException ex) {
-		if (ex.getMessage().contains("[user_email_uk]")) {
+		if (ex.getMessage().contains("[users_email_uk]")) {
 			return "The email address you have entered is already registered";
 		}
 		return ex.getMessage();

@@ -11,7 +11,7 @@
 <security:authorize access="isAuthenticated()">
 	${user.getName()}
 	<a href="<spring:url value="/doLogout"/>">Logout</a>
+	<a href="<spring:url value="/offerRide" />">Offer ride</a>
+	<a href="<spring:url value="/findRide" />">Find ride</a>
 </security:authorize>
-<a href="<spring:url value="/offerRide" />">Offer ride</a>
-<a href="<spring:url value="/findRide" />">Find ride</a>
 <hr/>

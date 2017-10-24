@@ -29,8 +29,8 @@
 				<bean class="edu.mum.damor.converter.GenderFormatter" />
 				<bean class="edu.mum.damor.converter.LocalDateFormatter" />
 				<bean class="edu.mum.damor.converter.LocalDateTimeFormatter" />
-				<!-- <bean class="edu.mum.damor.converter.LuggageSizeFormatter" /> -->
-				<!-- <bean class="edu.mum.damor.converter.UserFormatter" /> -->
+				<bean class="edu.mum.damor.converter.LuggageSizeFormatter" />
+				<bean class="edu.mum.damor.converter.UserFormatter" />
 			</set>
 		</property>
 	</bean>
