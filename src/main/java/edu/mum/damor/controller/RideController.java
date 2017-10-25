@@ -1,5 +1,8 @@
 package edu.mum.damor.controller;
 
+import java.time.LocalDate;
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import edu.mum.damor.converter.LocalDateFormatter;
 import edu.mum.damor.domain.Auth;
 import edu.mum.damor.domain.Ride;
 import edu.mum.damor.domain.User;
@@ -22,7 +26,9 @@ public class RideController {
 	RideService rideService;
 
 	@RequestMapping(value = "/offerRide", method = RequestMethod.GET)
-	public String userRides(@ModelAttribute User user) {
+	public String userRides(Model model) {
+		LocalDateFormatter formatter = new LocalDateFormatter();
+		model.addAttribute("today", formatter.print(LocalDate.now(), Locale.US));
 		return "offerRide";
 	}
 
