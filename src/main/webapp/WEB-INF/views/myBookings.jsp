@@ -16,10 +16,10 @@
                           <div class="col-sm-6 right-box">
                         
                                <div class="pickup-point">
-                                   <span><i class="fa fa-play-circle" aria-hidden="true"></i> <b>Pick-up point:</b> </span>${b.ride.pickupPoint}
+                                   <span><i class="fa fa-play-circle" aria-hidden="true"></i> <b>Pick-up point:</b> </span><spring:eval expression="b.ride.pickupPoint" />
                                </div>
                                <div class="dropoff-point">
-                                   <span><i class="fa fa-stop-circle-o" aria-hidden="true"></i> <b>Drop-off point:</b> </span>${b.ride.dropoffPoint}
+                                   <span><i class="fa fa-stop-circle-o" aria-hidden="true"></i> <b>Drop-off point:</b> </span><spring:eval expression="b.ride.dropoffPoint" />
                                </div>
                                
                               
@@ -28,18 +28,18 @@
                            
                        
                         <p class="date">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Departure time:</b> ${b.ride.departureAt}
+                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Departure time:</b> <spring:eval expression="b.ride.departureAt" /> 
                         </p>
                         
                         <p class="date">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Arrival time:</b> ${b.ride.arrivalAt}
+                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Arrival time:</b> <spring:eval expression="b.ride.arrivalAt" />  
                         </p>
                            <p class="date">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Booking time:</b> ${b.bookingAt}
+                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Booking time:</b> <spring:eval expression="b.bookingAt" /> 
                         </p>
                       
                         <p class="price">
-                            <i class="fa fa-usd" aria-hidden="true"></i> <b>Price:</b> ${b.ride.pricePerSeat}
+                            <i class="fa fa-usd" aria-hidden="true"></i> <b>Price:</b>  <spring:eval expression="b.ride.pricePerSeat" /> 
                         </p>
                     </div>
                     </div>
