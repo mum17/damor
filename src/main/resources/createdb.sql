@@ -69,8 +69,8 @@ alter table rides
     foreign key (driver_id) 
     references users (user_id);
     
-insert into users (authority, avatar, birthdate, email, first_name, gender, last_name, password) 
-values ('ADMIN', NULL, '2017-01-21', 'admin@gmail.com', 'Admin', 'M', 'Role', '$2a$10$Uz8jvJ2uR/HrJRVxKXP3SOeHo3j58hN7G/AAxYpIQ1fDdEMh4i.GC');
+insert into users (authority, birthdate, email, first_name, gender, last_name, password) 
+values ('ADMIN', '2017-01-21', 'admin@gmail.com', 'Admin', 'M', 'Role', '$2a$10$Uz8jvJ2uR/HrJRVxKXP3SOeHo3j58hN7G/AAxYpIQ1fDdEMh4i.GC');
 
 DELIMITER $$
 

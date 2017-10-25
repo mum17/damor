@@ -19,10 +19,10 @@
       <security:authorize access="isAnonymous()">
       <form class="navbar-form navbar-right">
         <div class="form-group">
-          <input name="email" type="text" placeholder="Email" class="form-control" value="jsmith@gmail.com">
+          <input name="email" type="text" placeholder="Email" class="form-control">
         </div>
         <div class="form-group">
-          <input name="password" type="password" placeholder="Password" class="form-control" value="1234">
+          <input name="password" type="password" placeholder="Password" class="form-control">
         </div>
         <button type="button" class="btn btn-success" onclick="api.login(this.form)">Sign in</button>
         <a class="btn btn-info" href="<spring:url value="/signup"/>">Sign up</a>
