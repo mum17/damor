@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import edu.mum.damor.domain.Auth;
 import edu.mum.damor.service.UserService;
 import edu.mum.damor.util.DamorException;
-import edu.mum.damor.util.Debug;
 
 @ControllerAdvice
 public class GlobalController {

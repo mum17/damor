@@ -10,7 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import edu.mum.damor.util.Authority;
 import edu.mum.damor.util.Gender;
@@ -34,6 +36,7 @@ public class User {
 
 	@Column(nullable = false)
 	@NotEmpty
+	@Email
 	private String email;
 
 	@Column(length = 64, nullable = false)
@@ -42,6 +45,7 @@ public class User {
 	@Column(length = 5, nullable = false)
 	private Authority authority;
 
+	@DateTimeFormat(pattern = "M/d/yyyy")
 	private LocalDate birthdate;
 
 	@Column(length = 1, nullable = false)
