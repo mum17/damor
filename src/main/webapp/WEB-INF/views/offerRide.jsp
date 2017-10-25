@@ -125,6 +125,8 @@
 			  </div>
 			 </div>
 			
+			
+			
 			<div>
                   <input type="button" class="btn btn-primary" value="Offer ride" onclick="api.offerRide(this.form)" />
 					<a href="<spring:url value="/myRides"/>">My rides</a>
