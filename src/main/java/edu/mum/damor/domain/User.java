@@ -8,11 +8,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 import edu.mum.damor.util.Authority;
 import edu.mum.damor.util.Gender;
@@ -51,8 +53,8 @@ public class User {
 	@Column(length = 1, nullable = false)
 	private Gender gender;
 
-	@Column(length = 100)
-	private String avatar;
+	@Transient
+	private MultipartFile photo;
 
 	public long getId() {
 		return id;
@@ -118,22 +120,21 @@ public class User {
 		this.gender = gender;
 	}
 
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-	
 	public String getName() {
 		return this.firstName + "  " + this.lastName;
+	}
+
+	public MultipartFile getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(MultipartFile photo) {
+		this.photo = photo;
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", email=" + email + "]";
 	}
-
 
 }

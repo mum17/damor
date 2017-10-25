@@ -14,6 +14,24 @@
 <link href="<spring:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
 <style>
 body { padding-top: 70px; }
+/* Rounded avatars */
+.avatar {
+  object-fit: cover;
+  border-radius:30%;
+  width: 28px;
+  height: 28px;
+  -webkit-box-shadow: 0 0 0 2px #fff, 0 0 0 3px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 0 0 2px #fff, 0 0 0 3px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px #999, 0 2px 5px 4px rgba(0,0,0,.2);
+  position: relative;
+  top: -5px;
+  float: left;
+  left: -5px;
+}
+.profile-image  {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
 </style>
 <script type="text/javascript">
 	var contextPath = '<spring:url value="/"/>';

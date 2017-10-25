@@ -1,7 +1,9 @@
 package edu.mum.damor.controller;
 
+import java.io.File;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mum.damor.domain.Auth;
@@ -34,6 +37,9 @@ import edu.mum.damor.util.Gender;
 @Controller
 public class AuthController {
 
+	@Autowired
+	ServletContext servletContext;
+	
 	@Autowired
 	UserService userService;
 
@@ -81,9 +87,9 @@ public class AuthController {
 
 		String email = user.getEmail();
 		String password = user.getPassword();
-
+		
 		try {
-			userService.save(user);
+			user = userService.save(user);
 		} catch (DataIntegrityViolationException ex) {
 			if (ex.getMessage().contains("[users_email_uk]")) {
 				br.addError(new FieldError("user", "email", email, true, null, null,
@@ -93,6 +99,20 @@ public class AuthController {
 			}
 			throw ex;
 		}
+
+		MultipartFile photo = user.getPhoto();
+		if (photo != null && !photo.isEmpty()) {
+			String filename = user.getId() + ".png";
+			try {
+				String root = System.getProperty("user.home") + File.separator + "damor_photos";
+				File target = new File(root);
+				if (!target.exists()) target.mkdirs();
+				photo.transferTo(new File(target, filename));
+			} catch (Exception ex) {
+				throw new DamorException("Employee photo saving failed:" + ex.getMessage(), ex);
+			}
+		}
+
 
 		try {
 			request.login(email, password);

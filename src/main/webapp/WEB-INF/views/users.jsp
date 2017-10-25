@@ -7,7 +7,7 @@
 	<table class="table table-bordered table-striped">
 	<thead>
 		<tr>
-			
+			<th>&nbsp;</th>
 			<th>User id</th>
 			<th>First name</th>
 			<th>Last name</th>
@@ -20,6 +20,9 @@
 	<tbody>
 		<c:forEach items="${users}" var="u">
 		<tr>
+			<td><div style="margin: 0 auto; width: 60px"><img class="avatar" style="width:60px;height:60px;" 
+			src="<spring:url value="/photos/${u.id}.png"/>" 
+          onerror="if (this.src != '<spring:url value="/resources/no_avatar.png"/>') this.src = '<spring:url value="/resources/no_avatar.png"/>';"/></div></td>
 			<td>${u.id}</td>
 			<td>${u.firstName}</td>
 			<td>${u.lastName}</td>

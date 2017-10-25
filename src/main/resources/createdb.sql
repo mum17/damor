@@ -39,7 +39,6 @@ create table rides (
 create table users (
     user_id bigint not null auto_increment,
     authority varchar(5) not null,
-    avatar varchar(100),
     birthdate date,
     email varchar(255) not null,
     first_name varchar(50) not null,

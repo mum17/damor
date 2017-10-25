@@ -19,6 +19,7 @@
 
 	<!-- OR <mvc:default-servlet-handler /> -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/photos/*" location="file:${user.home}/damor_photos/" />
 
 
 	<bean id="conversionService"

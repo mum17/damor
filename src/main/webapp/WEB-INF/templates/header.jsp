@@ -33,7 +33,11 @@
 		<li><a href="<spring:url value="/offerRide" />">Offer ride</a></li>
 		<li><a href="<spring:url value="/findRide" />">Find ride</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${user.getName()} <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle profile-image" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <img class="avatar" src="<spring:url value="/photos/${user.id}.png"/>" 
+          onerror="if (this.src != '<spring:url value="/resources/no_avatar.png"/>') this.src = '<spring:url value="/resources/no_avatar.png"/>';"/>
+          ${user.getName()} 
+          <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<spring:url value="/myBookings"/>">My bookings</a></li>
             <li><a href="<spring:url value="/myRides"/>">My rides</a></li>

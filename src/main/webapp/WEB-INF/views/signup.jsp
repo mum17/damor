@@ -8,7 +8,7 @@
   <h1>Sign up</small></h1>
 </div>
 
-<form:form modelAttribute="user" class="form-horizontal">
+<form:form modelAttribute="user" class="form-horizontal" enctype="multipart/form-data">
  <div class="form-group">
     <label class="col-sm-2 control-label">First name</label>
     <div class="col-sm-4">
@@ -55,6 +55,13 @@
 	<label class="radio-inline"><form:radiobutton path="gender" value="F"/> Females</label>
 	</div>
    </div>
+   
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Select photo</label>
+    <div class="col-sm-4">
+	   <form:input path="photo" type="file" />
+    </div>
+  </div>
 
    <div class="col-sm-3 control-label">
 	<button type="submit" value="Sign up" class="btn btn-primary">Sign up</button>
