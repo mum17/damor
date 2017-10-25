@@ -64,6 +64,12 @@
 		<property name="basenames" value="classpath:messages,classpath:errorMessages" />
 	</bean>
 
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10240000" />
+	</bean>
+
+
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
