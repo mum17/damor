@@ -213,7 +213,7 @@
 			   <div class="input-group-addon">
 				<span class="glyphicon glyphicon-time"></span> 
 			   </div>
-			   <input id="distance" name="distance" class="form-control" value="0" disabled />
+			   <input id="distance" name="distance" class="form-control" value="0" readonly />
 			  </div>
 			 </div>
         </div>
