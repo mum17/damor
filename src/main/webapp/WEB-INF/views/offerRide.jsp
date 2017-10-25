@@ -2,9 +2,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
-<legend></legend>
+<legend>Offer a Ride</legend>
 	<form>
-	<div class="container" style="padding-top: 50px;">
+	<div class="container" >
       <div id="row">
 		
         <div class="col-sm-8">
@@ -19,7 +19,7 @@
 			   <div class="input-group-addon">
 				<span class="glyphicon glyphicon-log-in"></span> 
 			   </div>
-			   <input id="origin-input"  class="form-control" placeholder="Example : Fairfield, Iowa" name="pickupPoint" size=100 value="2701 W Burlington Ave, Fairfield, IA 52556, USA" />
+			   <input id="origin-input"  class="form-control" placeholder="Example : Fairfield, Iowa" name="pickupPoint" size=100 />
 			  </div>
 			 </div>
           <div class="form-group ">
@@ -30,7 +30,7 @@
 			   <div class="input-group-addon">
 				<span class="glyphicon glyphicon-log-out"></span> 
 			   </div>
-			   <input id="destination-input" class="form-control" placeholder="Example : Des Moines, Iowa" name="dropoffPoint" size=100 value="Ottumwa, IA 52501, USA" />
+			   <input id="destination-input" class="form-control" placeholder="Example : Des Moines, Iowa" name="dropoffPoint" size=100 />
 			  </div>
 			 </div>
 			
@@ -152,30 +152,70 @@
 		<div class="col-sm-4" >
           <div id="map"  style="width: 400px; height: 400px;"></div>
           <br>
-            <div>
-                  <h6>Pick Up Latitude</h6>
-                  <input id="pickLat" name="pickupLat" value="0" />
+          
+          <div>
+          
+          <div class="form-group ">
+			  <label class="control-label " for="pickLat">
+			   Pick Up Latitude
+			  </label>
+			  <div class="input-group">
+			   <div class="input-group-addon">
+				<span class="glyphicon glyphicon-time"></span> 
+			   </div>
+			   <input id="pickLat" name="pickupLat" class="form-control" value="0" readonly />
+			  </div>
+			 </div>
+
+            <div class="form-group ">
+			  <label class="control-label " for="pickLng">
+			   Pick Up Longitude
+			  </label>
+			  <div class="input-group">
+			   <div class="input-group-addon">
+				<span class="glyphicon glyphicon-time"></span> 
+			   </div>
+			   <input id="pickLng" name="pickupLng" class="form-control" value="0" readonly />
+			  </div>
+			 </div>
+			 
+			 <div class="form-group ">
+			  <label class="control-label " for="destLat">
+			   Drop-off Latitude
+			  </label>
+			  <div class="input-group">
+			   <div class="input-group-addon">
+				<span class="glyphicon glyphicon-time"></span> 
+			   </div>
+			   <input id="destLat" name="dropoffLat" class="form-control" value="0" readonly />
+			  </div>
+			 </div>
+			 
+			 <div class="form-group ">
+			  <label class="control-label " for="destLng">
+			   Drop-off Longitude
+			  </label>
+			  <div class="input-group">
+			   <div class="input-group-addon">
+				<span class="glyphicon glyphicon-time"></span> 
+			   </div>
+			   <input id="destLng" name="dropoffLng" class="form-control" value="0" readonly />
+			  </div>
+			 </div>
+
             </div>
-            <br>
-			<div>
-                  <h6>Pick Up Longitude</h6>
-                  <input id="pickLng" name="pickupLng" value="0" />
-            </div>
-            <br>
-			<div>
-                  <h6>Drop-off Latitude</h6>
-                  <input id="destLat" name="dropoffLat" value="0" />
-            </div>
-            <br>
-			<div>
-                  <h6>Drop-off Longitude</h6>
-                  <input id="destLng" name="dropoffLng" value="0" />
-            </div>
-            <br>
-			<div>
-                  <h6>Distance</h6>
-                  <input id="distance" name="distanceInMile" value="0"/>(in miles)
-            </div>
+            
+            <div class="form-group ">
+			  <label class="control-label " for="distance">
+			   Distance (in miles)
+			  </label>
+			  <div class="input-group">
+			   <div class="input-group-addon">
+				<span class="glyphicon glyphicon-time"></span> 
+			   </div>
+			   <input id="distance" name="distance" class="form-control" value="0" disabled />
+			  </div>
+			 </div>
         </div>
 
   </div>
