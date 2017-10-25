@@ -4,6 +4,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
+<div class="HomeBlock-image" style="background-image: url(<spring:url value="/resources/homeblock.jpg" />);" aria-hidden="true">
+</div>
+
 <div class="jumbotron">
   <div class="container">
     <h1>Hello, world!</h1>
