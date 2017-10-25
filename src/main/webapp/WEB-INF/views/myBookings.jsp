@@ -24,24 +24,28 @@
                                
                               
                           </div>
-                            <div class="col-sm-6 left-box">
+                          <div class="col-sm-4 left-box">
                            
                        
-                        <p class="date">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Departure time:</b> <spring:eval expression="b.ride.departureAt" /> 
-                        </p>
+                               <p class="date">
+                               <i class="fa fa-calendar" aria-hidden="true"></i> <b>Departure time:</b> <spring:eval expression="b.ride.departureAt" /> 
+                               </p>
                         
-                        <p class="date">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Arrival time:</b> <spring:eval expression="b.ride.arrivalAt" />  
-                        </p>
-                           <p class="date">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <b>Booking time:</b> <spring:eval expression="b.bookingAt" /> 
-                        </p>
+                               <p class="date">
+                               <i class="fa fa-calendar" aria-hidden="true"></i> <b>Arrival time:</b> <spring:eval expression="b.ride.arrivalAt" />  
+                               </p>
+                               <p class="date">
+                               <i class="fa fa-calendar" aria-hidden="true"></i> <b>Booking time:</b> <spring:eval expression="b.bookingAt" /> 
+                               </p>
                       
-                        <p class="price">
-                            <i class="fa fa-usd" aria-hidden="true"></i> <b>Price:</b>  <spring:eval expression="b.ride.pricePerSeat" /> 
-                        </p>
-                    </div>
+                               <p class="price">
+                               <i class="fa fa-usd" aria-hidden="true"></i> <b>Price:</b>  <spring:eval expression="b.ride.pricePerSeat" /> 
+                               </p>
+                             
+                          </div>
+                          <div class="col-sm-2 left-box">
+                          <button class="btn btn-danger" onclick="api.cancelBooking(${b.id})">cancel</button>
+                           </div>
                     </div>
               
             </c:forEach>
