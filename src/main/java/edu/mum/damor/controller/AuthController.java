@@ -10,11 +10,8 @@ import javax.sql.DataSource;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -26,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mum.damor.domain.Auth;
 import edu.mum.damor.domain.User;
@@ -49,18 +45,6 @@ public class AuthController {
 	@RequestMapping("/")
 	public String home() {
 		return "home";
-	}
-
-	@RequestMapping("/createdb")
-	public String createDefaultDB() {
-		// DataSource dataSource =
-		// (DataSource)ApplicationContextProvider.getApplicationContext().getBean("dataSource");
-
-		Resource resource = new ClassPathResource("createdb.sql");
-		ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator(resource);
-		databasePopulator.execute(dataSource);
-
-		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)

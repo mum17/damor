@@ -1,3 +1,6 @@
+create schema `damor`;
+use damor;
+
 drop table if exists bookings;
 drop table if exists rides;
 drop table if exists users;
@@ -69,4 +72,23 @@ alter table rides
 insert into users (authority, avatar, birthdate, email, first_name, gender, last_name, password) 
 values ('ADMIN', NULL, '2017-01-21', 'admin@gmail.com', 'Admin', 'M', 'Role', '$2a$10$Uz8jvJ2uR/HrJRVxKXP3SOeHo3j58hN7G/AAxYpIQ1fDdEMh4i.GC');
 
+DELIMITER $$
+
+DROP FUNCTION IF EXISTS geodist $$
+CREATE FUNCTION geodist (
+  src_lat double, src_lon double,
+  dst_lat double, dst_lon double
+) RETURNS double DETERMINISTIC
+BEGIN
+  SET @dist := 3956 * 2 * ASIN(SQRT(
+      POWER(SIN((src_lat - ABS(dst_lat)) * PI()/180 / 2), 2) +
+      COS(src_lat * PI()/180) *
+      COS(ABS(dst_lat) * PI()/180) *
+      POWER(SIN((src_lon - dst_lon) * PI()/180 / 2), 2)
+    ));
+  RETURN @dist;
+END $$
+
+
+DELIMITER ;
 
