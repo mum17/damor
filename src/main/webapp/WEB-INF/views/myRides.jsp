@@ -32,7 +32,7 @@
 <c:forEach items="${rides}" var="r">
 <tr><td>${r.id}
 <td>${r.pickupPoint}<td style="display:none;">${r.pickupLat}<td style="display:none;">${r.pickupLng}<td><spring:eval expression="r.departureAt"/><td>${r.pickupFlexibilityInMinutes}
-<td>${r.dropoffPoint}<td style="display:none;">${r.dropoffLat}<td style="display:none;">${r.dropoffLng}<td>${r.arrivalAt}
+<td>${r.dropoffPoint}<td style="display:none;">${r.dropoffLat}<td style="display:none;">${r.dropoffLng}<td><spring:eval expression="r.arrivalAt"/>
 <td>${r.note}<td>${r.luggageSize}<td>${r.status}<td>${r.pricePerSeat}<td>${r.distanceInMile}<td>${r.maxNumberOfSeats}
 <td><button class="btn btn-danger" onclick="api.cancelRide(${r.id})">cancel</button>
 </c:forEach>
