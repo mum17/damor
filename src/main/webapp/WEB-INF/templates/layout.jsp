@@ -32,6 +32,20 @@ body { padding-top: 70px; }
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
+.HomeBlock-image {
+    width: auto;
+    height: 55vh;
+    margin: 0 auto;
+    background-position: 50% 20%;
+    position: relative;
+    min-width: 450px;
+    min-height: 240px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 4px;
+}
 </style>
 <script type="text/javascript">
 	var contextPath = '<spring:url value="/"/>';
