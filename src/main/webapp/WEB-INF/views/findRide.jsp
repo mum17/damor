@@ -71,7 +71,7 @@
 			   <div class="input-group-addon">
 				<span class="glyphicon glyphicon-time"></span> 
 			   </div>
-			   <input id="departureAt" name="departureAtFrom" class="form-control" value="10/22/2017 10:30" />
+			   <input id="departureAt" name="departureAtFrom" class="form-control" value="${today} 10:00" />
 			  </div>
 			 </div>
 			 
@@ -83,7 +83,7 @@
 			   <div class="input-group-addon">
 				<span class="glyphicon glyphicon-time"></span> 
 			   </div>
-			   <input id="arrivalAt" name="departureAtTo" class="form-control" value="10/22/2017 14:35" />
+			   <input id="arrivalAt" name="departureAtTo" class="form-control" value="${today} 18:00" />
 			  </div>
 			 </div>
 			 
