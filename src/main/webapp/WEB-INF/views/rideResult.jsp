@@ -47,7 +47,7 @@
 				<td>${r.status}</td>
 				<td>${r.pricePerSeat}</td>
 				<td>${r.distanceInMile}</td>
-				<td>${r.availableSeats()}</td>
+				<td>${r.availableSeats()} / ${r.maxNumberOfSeats}</td>
 				<td><input class="btn btn-primary" type="button" value="Book seat" onclick="api.bookSeat(${r.id}, 1)" /></td>
 			</c:forEach>
 		</tbody>
