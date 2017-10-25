@@ -1,14 +1,36 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<legend>List of Users</legend>
 
-<fieldset><table border=1 cellspacing=0>
-<tr><th>User id<th>First name<th>Last name<th>Email<th>Authority<th>Gender<th>&nbsp;
-<c:forEach items="${users}" var="u">
-<tr><td>${u.id}<td>${u.firstName}<td>${u.lastName}
-<td>${u.email}<td>${u.authority}<td>${u.gender}
-<td><button onclick="api.editUser(${u.id})">edit</button>
-</c:forEach>
-</table></fieldset>
+<div class="table-responsive">
+	<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			
+			<th>User id</th>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>Email</th>
+			<th>Authority</th>
+			<th>Gender</th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach items="${users}" var="u">
+		<tr>
+			<td>${u.id}</td>
+			<td>${u.firstName}</td>
+			<td>${u.lastName}</td>
+			<td>${u.email}</td>
+			<td>${u.authority}</td>
+			<td>${u.gender}</td>
+			<td style="text-align:center;"><button class="btn btn-primary" onclick="api.editUser(${u.id})">edit</button></td>
+		</c:forEach>
+	</tbody>
+	</table>
+</div>
 </body>
 </html>
+
