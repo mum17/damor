@@ -6,7 +6,7 @@
 		<thead>
 			<tr>
 				<th rowspan=2 style="vertical-align:middle;">ID</th>
-				<th>&nbsp;</th>
+				<th rowspan=2>&nbsp;</th>
 				<th colspan=3 style="text-align:center;">Pickup</th>
 				<th colspan=2 style="text-align:center;">Drop off</th>
 				<th colspan=6 style="text-align:center;">Information</th>
