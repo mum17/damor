@@ -3,12 +3,17 @@ package edu.mum.damor.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 
 import edu.mum.damor.converter.LocalDateTimeAttributeConverter;
 import edu.mum.damor.domain.Ride;
 import edu.mum.damor.domain.RideSearchInfo;
+import edu.mum.damor.domain.dto.DomainError;
+import edu.mum.damor.domain.dto.DomainErrors;
 import edu.mum.damor.repository.RideRepository;
 import edu.mum.damor.service.RideService;
 import edu.mum.damor.util.RideStatus;
@@ -17,6 +22,10 @@ import edu.mum.damor.util.RideStatus;
 @Transactional
 public class RideServiceImpl implements RideService {
 
+
+	@Autowired
+	MessageSourceAccessor messageAccessor;
+	
 	@Autowired
 	RideRepository rideRepository;
 
@@ -53,5 +62,19 @@ public class RideServiceImpl implements RideService {
 				a.convertToDatabaseColumn(info.getDepartureAtTo()), //
 				info.getPriceFrom(), info.getPriceTo());
 	}
+	
+	public DomainErrors formatBindingResult(BindingResult br) {
+        List<FieldError> fieldErrors = br.getFieldErrors();
+   
+        DomainErrors errors = new DomainErrors();
+        errors.setErrorType("ValidationError");
+        for (FieldError fieldError : fieldErrors) {
+         	DomainError error = new DomainError( messageAccessor.getMessage(fieldError));
+                       errors.addError(error);
+        }
+         
+         return errors;
+    }
+	
 
 }

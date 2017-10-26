@@ -3,6 +3,7 @@ package edu.mum.damor.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
@@ -13,15 +14,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import edu.mum.damor.domain.Auth;
+import edu.mum.damor.domain.dto.DomainErrors;
+import edu.mum.damor.domain.dto.DomainException;
 import edu.mum.damor.service.UserService;
 import edu.mum.damor.util.DamorException;
 
 @ControllerAdvice
 public class GlobalController {
-	
+
+	@Autowired
+	MessageSourceAccessor messageAccessor;
+
 	@Autowired
 	UserService userService;
-	
+
 	@ModelAttribute
 	public Auth getUser(Principal principal) {
 		if (principal != null) {
@@ -45,6 +51,13 @@ public class GlobalController {
 	@ResponseBody
 	public String handleError(DamorException ex) {
 		return ex.getMessage();
+	}
+
+	@ExceptionHandler(DomainException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ResponseBody
+	public DomainErrors handleException(DomainException ex) {
+		return ex.errors;
 	}
 
 	@ExceptionHandler

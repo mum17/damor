@@ -65,6 +65,11 @@
 		<property name="basenames" value="classpath:messages,classpath:errorMessages" />
 	</bean>
 
+	<bean id="messageAccessor"
+		class="org.springframework.context.support.MessageSourceAccessor">
+		<constructor-arg ref="messageSource" />
+	</bean>
+
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
 		<property name="validationMessageSource" ref="messageSource" />

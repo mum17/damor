@@ -1,10 +1,26 @@
 var api = {};
 $(function() {
 
+	function alertError(text) {
+		$('#errorDialog .errorText').html(text);
+		$('#errorDialog').modal('show');
+	}
+
 	function post(url, data) {
 		return $.post(contextPath + url, data).fail(function(error) {
-			$('#errorDialog .errorText').html(error.responseText);
-			$('#errorDialog').modal('show');
+			var text = '';
+			console.log(error);
+			if (error.responseJSON.errorType == "ValidationError") {
+				text += '<ol>';
+				var errorList = error.responseJSON.errors;
+				$.each(errorList, function(i, error) {
+					text += '<li>' + error.message + '</li>';
+				});
+				text += '</ol>';
+			} else {
+				text = error.responseText;
+			}
+			alertError(text);
 		});
 	}
 
@@ -37,7 +53,6 @@ $(function() {
 
 	api.offerRide = function(form) {
 		var data = gatherForm(form);
-		console.log(JSON.stringify(data));
 		post("offerRide", data).done(function(done) {
 			location.reload();
 		});
@@ -74,10 +89,6 @@ $(function() {
 		}).done(function() {
 			location.reload();
 		})
-	}
-	
-	api.editUser = function(userId) {
-		alert('Not implemented!');
 	}
 
 });
