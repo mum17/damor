@@ -47,5 +47,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/users.jsp" />
 	</definition>
 
+	<definition name="user" extends="base">
+		<put-attribute name="body" value="/WEB-INF/views/user.jsp" />
+	</definition>
 
 </tiles-definitions>

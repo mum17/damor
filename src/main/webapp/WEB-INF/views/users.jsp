@@ -29,7 +29,7 @@
 			<td>${u.email}</td>
 			<td>${u.authority}</td>
 			<td>${u.gender}</td>
-			<td style="text-align:center;"><button class="btn btn-primary" onclick="api.editUser(${u.id})">edit</button></td>
+			<td style="text-align:center;"><a class="btn btn-primary" href="<spring:url value="/user/${u.id}" />">edit</a></td>
 		</c:forEach>
 	</tbody>
 	</table>

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import edu.mum.damor.converter.LocalDateFormatter;
 import edu.mum.damor.domain.Auth;
 import edu.mum.damor.domain.Ride;
-import edu.mum.damor.domain.User;
 import edu.mum.damor.service.RideService;
 
 @Controller

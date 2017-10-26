@@ -3,7 +3,8 @@ $(function() {
 
 	function post(url, data) {
 		return $.post(contextPath + url, data).fail(function(error) {
-			alert("ERROR: " + error.responseText);
+			$('#errorDialog .errorText').html(error.responseText);
+			$('#errorDialog').modal('show');
 		});
 	}
 

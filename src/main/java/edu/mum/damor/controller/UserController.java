@@ -18,6 +18,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,10 +29,11 @@ import edu.mum.damor.domain.Auth;
 import edu.mum.damor.domain.User;
 import edu.mum.damor.service.UserService;
 import edu.mum.damor.util.DamorException;
+import edu.mum.damor.util.Debug;
 import edu.mum.damor.util.Gender;
 
 @Controller
-public class AuthController {
+public class UserController {
 
 	@Autowired
 	ServletContext servletContext;
@@ -84,7 +86,55 @@ public class AuthController {
 			throw ex;
 		}
 
+		savePhoto(user);
+
+		try {
+			request.login(email, password);
+		} catch (ServletException e) {
+			throw new DamorException("Authentication failed", e);
+		}
+		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
+	public String editUser(@PathVariable("userId") int id, Model model) {
+		User user = userService.findOne(id);
+		model.addAttribute("theUser", user);
+		return "user";
+	}
+	
+	@RequestMapping(value = "/user/*", method = RequestMethod.POST)
+	public String editUser(@Valid @ModelAttribute("theUser") User user, BindingResult br, Model model) {
+		if (br.hasErrors()) {
+			return "user";
+		}
+
+		String[] suppressedFields = br.getSuppressedFields();
+		if (suppressedFields.length > 0) {
+			throw new RuntimeException("Attempt to bind fields that haven't been allowed in initBinder(): "
+					+ StringUtils.addStringToArray(suppressedFields, ", "));
+		}
+
+		try {
+			userService.save(user);
+		} catch (DataIntegrityViolationException ex) {
+			if (ex.getMessage().contains("[users_email_uk]")) {
+				br.addError(new FieldError("user", "email", user.getEmail(), true, null, null,
+						"The email address you have entered is already registered"));
+				model.addAttribute("theUser", user);
+				return "user";
+			}
+			throw ex;
+		}
+
+		savePhoto(user);
+
+		return "redirect:/users";
+	}
+	
+	private void savePhoto(User user) {
 		MultipartFile photo = user.getPhoto();
+		Debug.log("save photo", photo != null && !photo.isEmpty());
 		if (photo != null && !photo.isEmpty()) {
 			String filename = user.getId() + ".png";
 			try {
@@ -96,14 +146,6 @@ public class AuthController {
 				throw new DamorException("Employee photo saving failed:" + ex.getMessage(), ex);
 			}
 		}
-
-
-		try {
-			request.login(email, password);
-		} catch (ServletException e) {
-			throw new DamorException("Authentication failed", e);
-		}
-		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -130,5 +172,5 @@ public class AuthController {
 		model.addAttribute("users", userService.findAll());
 		return "users";
 	}
-
+	
 }

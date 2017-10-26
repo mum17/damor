@@ -36,6 +36,7 @@
 		<security:intercept-url pattern="/myBookings" access="isAuthenticated()" />
 		<security:intercept-url pattern="/myRides" access="isAuthenticated()" />
 		<security:intercept-url pattern="/users" access="hasAuthority('ADMIN')" />
+		<security:intercept-url pattern="/user/**" access="hasAuthority('ADMIN')" />
 
 		<!-- <security:intercept-url pattern="/signup" access="isAnonymous()"/>  -->
 		<!-- <security:intercept-url pattern="/logout" access="isAuthenticated()" requires-channel="http"/> -->

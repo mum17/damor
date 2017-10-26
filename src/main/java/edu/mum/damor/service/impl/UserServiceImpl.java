@@ -11,6 +11,7 @@ import edu.mum.damor.domain.User;
 import edu.mum.damor.repository.UserRepository;
 import edu.mum.damor.service.UserService;
 import edu.mum.damor.util.Authority;
+import edu.mum.damor.util.Debug;
 
 @Service
 @Transactional
@@ -29,9 +30,13 @@ public class UserServiceImpl implements UserService {
 		if (user.getAuthority() == null) {
 			user.setAuthority(Authority.USER);
 		}
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String hashedPassword = passwordEncoder.encode(user.getPassword());
-		user.setPassword(hashedPassword);
+		if (user.getId() != 0 && user.getPassword().isEmpty()) {
+			user.setPassword(findOne(user.getId()).getPassword());
+		} else {
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String hashedPassword = passwordEncoder.encode(user.getPassword());
+			user.setPassword(hashedPassword);
+		}
 		return userRepository.save(user);
 	}
 
