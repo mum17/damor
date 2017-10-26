@@ -41,7 +41,7 @@ public class BookingController {
 	}
 
 	@RequestMapping(value = "/findRide", method = RequestMethod.POST)
-	public String findRide(@Valid @ModelAttribute RideSearchInfo info, Model model, BindingResult br) {
+	public String findRide(@Valid @ModelAttribute RideSearchInfo info, BindingResult br, Model model) {
 		if (br.hasErrors()) {
 			throw new DomainException(rideService.formatBindingResult(br));
 		}

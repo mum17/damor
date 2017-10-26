@@ -10,7 +10,7 @@ $(function() {
 		return $.post(contextPath + url, data).fail(function(error) {
 			var text = '';
 			console.log(error);
-			if (error.responseJSON.errorType == "ValidationError") {
+			if (error.responseJSON && error.responseJSON.errorType == "ValidationError") {
 				text += '<ol>';
 				var errorList = error.responseJSON.errors;
 				$.each(errorList, function(i, error) {
