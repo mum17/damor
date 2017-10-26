@@ -54,7 +54,7 @@ $(function() {
 	api.offerRide = function(form) {
 		var data = gatherForm(form);
 		post("offerRide", data).done(function(done) {
-			location.reload();
+			location.href = contextPath + "myRides";
 		});
 	}
 
